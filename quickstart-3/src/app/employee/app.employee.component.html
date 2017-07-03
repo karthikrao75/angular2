@@ -1,0 +1,38 @@
+<h3> Employee Details !</h3>
+          <input type="text" #demotext >
+          <button (click)="clickMe(demotext.value)">Event Binding & reference 1</button>
+          <button (click)="clickMe(demotext)">Event Binding & reference 2</button>
+          <button (click)="clickMe($event)">Event Binding & reference 3</button>
+          <br><br>
+          Two way data binding
+          <input type="text" [(ngModel)]="fname">
+          <input type="text" [(ngModel)]="lname">
+          <br><br>
+          Full Name : {{fname+' '+lname}}
+          <br><br>
+          structural directives :- responsible for DOM manipulation
+          <br />
+          show the content inside ngIf -
+          <input type="checkbox" [(ngModel)]=showElement  />
+          <p *ngIf="showElement">
+              *ngIf is one of the structural directive
+          </p>
+          <br /><br />
+          showing ngSwitch
+          <br /><br />
+          select a color to switch
+          <select [(ngModel)]="color">
+            <option value="red" selected="selected">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+          </select>
+          <div [ngSwitch]="color">
+              <p *ngSwitchCase="'red'">Red Color</p>
+              <p *ngSwitchCase="'blue'">Blue Color</p>
+              <p *ngSwitchCase="'green'">Green Color</p>
+              <p *ngSwitchDefault>Invalid color</p>
+          </div>
+
+          <ul>
+            <li *ngFor="let col of colors">{{col}}</li>
+          </ul>
