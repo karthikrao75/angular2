@@ -1,0 +1,45 @@
+<div>
+<form #userForm="ngForm" (ngSubmit)="login(userForm.value)">
+  <input type="text" #nameRef="ngModel" ngModel name="name" required minlength="4" maxlength="15">
+  {{nameRef.className}}
+  <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)">
+<div [hidden]="!nameRef.errors.required">
+  Please fill the name
+</div>
+<div [hidden]="!nameRef.errors.minlength">
+  name should have atleast 4 characters
+</div>
+<div [hidden]="!nameRef.errors.mixlength">
+  name can have upto 15 characters
+</div>
+  </div>
+  <input type="text" #passwordRef="ngModel" ngModel name="password" required minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!_#@~%^.*\s]).*$"/>
+  <div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)">
+<div [hidden]="!passwordRef.errors.required">
+  Please fill the password
+</div>
+<div [hidden]="!passwordRef.errors.minlength">
+  name should have atleast 4 characters
+</div>
+<div [hidden]="!passwordRef.errors.mixlength">
+  name can have upto 15 characters
+</div>
+<div [hidden]="!passwordRef.errors.pattern">
+  should contain atleast one uppercase one lowercase one number and one special character.
+</div>
+</div>
+  <input type="text" #genderRef="ngModel" ngModel name="gender" required />
+  <div *ngIf="genderRef.errors && (genderRef.dirty || genderRef.touched)">
+<div [hidden]="!genderRef.errors.required">
+  Please fill the Gender
+</div>
+<div [hidden]="!genderRef.errors.minlength">
+  name should have atleast 4 characters
+</div>
+<div [hidden]="!genderRef.errors.mixlength">
+  name can have upto 15 characters
+</div>
+</div>
+<input type="submit" />
+</form>
+</div>
