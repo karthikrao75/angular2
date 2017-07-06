@@ -1,0 +1,25 @@
+<div>
+<form [formGroup]="userForm" (ngSubmit)="login(userForm.value)">
+  <input type="text"  formControlName="name">
+  <div *ngIf="userForm.controls['name'].hasError('required')">
+  Please fill the name
+  </div>
+  <div *ngIf="userForm.controls['name'].hasError('minLength')">
+  min of 4 is required
+  </div>
+  <input type="text"  formControlName="password"/>
+  <div *ngIf="userForm.controls['password'].hasError('pattern')">
+    pattern error
+</div>
+  <input type="text"  formControlName="gender" />
+  <div formGroupName="address">
+<input type="text" formControlName="city" />
+<div *ngIf="userForm.controls['address'].controls['city'].hasError('required')">
+Please fill the city name
+</div>
+<input type="text" formControlName="country" />
+
+  </div>
+<input type="submit" />
+</form>
+</div>
