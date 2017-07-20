@@ -16,11 +16,15 @@ constructor(private _employeeService:EmployeeService){
 
 }
   validateJSON(){
-    this._employeeService.validateJSON().subscribe(res=> this.success(res));
+    this._employeeService.validateJSON().subscribe(res=> this.success(res), err=>this.ErrorHandler(err));
 
   }
 
   success(res:any){
     alert(res.data);
+  }
+
+  ErrorHandler(err:any){
+    alert(err);
   }
 }
